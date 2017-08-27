@@ -1,6 +1,8 @@
 package com.example.demo.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,19 +10,21 @@ public class User {
 
 	
 	@Id
-	private String userName;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long userId;
 	
 	private String firstName;
 	
 	private String lastName;
-
-	public String getUserName() {
-		return userName;
+	
+	public User () {}
+	
+	public User (String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
 
 	public String getFirstName() {
 		return firstName;

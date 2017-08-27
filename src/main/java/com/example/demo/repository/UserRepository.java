@@ -1,11 +1,13 @@
 package com.example.demo.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.example.demo.domain.User;
 
-public interface UserRepository extends JpaRepository<User, String>{
+public interface UserRepository extends JpaRepository<User, Long>{
 
-	public User findByUserName(@Param("username") String userName);
+	public List<User> findByFirstName(@Param("firstname") String firstName);
 }
